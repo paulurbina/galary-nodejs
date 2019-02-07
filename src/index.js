@@ -1,4 +1,4 @@
-const app = require('./app');
+var app = require('./app');
 
 app.listen(app.get('port'), () => {
     console.log('server on port', app.get('port'));
