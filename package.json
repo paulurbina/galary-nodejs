@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon src/app",
-    "start": "cross-env NODE_ENV=production node src/app"
+    "dev": "cross-env NODE_ENV=development nodemon src/",
+    "start": "cross-env NODE_ENV=production node src/"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
+    "fs-extra": "^7.0.1",
     "mongoose": "^5.4.10",
     "morgan": "^1.9.1",
     "multer": "^1.4.1"
