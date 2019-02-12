@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const Photo = require('../models/Image');
+const Photo = require('../models/Photo');
 
 const cloudinary = require('cloudinary');
 const fs = require('fs-extra');
@@ -11,12 +11,14 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
-router.get('/', (req ,res) => {
-   res.render('images')
+router.get('/', async (req ,res) => {
+    const photos = await Photo.find();
+    res.render('images', { photos });
 });
 
-router.get('/images/add', (req, res) => {
-    res.render('form-img')
+router.get('/images/add', async (req, res) => {
+    const photos = await Photo.find();
+    res.render('form-img', {photos})
 });
 
 router.post('/images/add', async (req, res) => {
@@ -33,6 +35,5 @@ router.post('/images/add', async (req, res) => {
     await fs.unlink(req.file.path);
     res.send('received');
 });
-
 
 module.exports = router;
