@@ -33,7 +33,7 @@ router.post('/images/add', async (req, res) => {
     });
     await newPhoto.save();
     await fs.unlink(req.file.path);
-    res.send('received');
+    res.redirect('/');
 });
 
 module.exports = router;
